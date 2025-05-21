@@ -69,7 +69,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:onClick="Iniciar"
                     android:text="@string/btn_iniciar"
-                    android:textColor="@color/boton_texto"
+                    android:textColor="@color/white"
                     android:layout_marginBottom="10dp"
                     android:textSize="18sp" />
 
@@ -81,7 +81,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:onClick="Estadisticas"
                     android:text="@string/btn_mis_estad_sticas"
-                    android:textColor="@color/boton_texto"
+                    android:textColor="@color/white"
                     android:layout_marginBottom="10dp"
                     android:textSize="18sp" />
 
@@ -93,7 +93,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:onClick="AcercaDe"
                     android:text="@string/btn_acerca_de_nosotros"
-                    android:textColor="@color/boton_texto"
+                    android:textColor="@color/white"
                     android:layout_marginBottom="10dp"
                     android:textSize="18sp" />
 
@@ -105,7 +105,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:onClick="Salir"
                     android:text="@string/txt_salir"
-                    android:textColor="@color/boton_texto"
+                    android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>
 
