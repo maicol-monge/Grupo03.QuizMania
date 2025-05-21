@@ -1,5 +1,6 @@
 package sv.edu.catolica.grupo03quizmania;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,8 @@ public class Home extends AppCompatActivity {
     }
 
     public void Iniciar(View view) {
+        Intent intent = new Intent(this, QuizPregunta.class);
+        startActivity(intent);
     }
 
     public void Estadisticas(View view) {

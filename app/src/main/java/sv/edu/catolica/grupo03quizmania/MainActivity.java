@@ -41,9 +41,9 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 finish();
-                Intent objVentana = new Intent(MainActivity.this, QuizPregunta.class);
+                Intent objVentana = new Intent(MainActivity.this, Home.class);
                 startActivity(objVentana);
             }
-        }, 1500);
+        }, 2000);
     }
 }

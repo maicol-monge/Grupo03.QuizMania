@@ -7,4 +7,8 @@
     <string name="btn_mis_estad_sticas">Mis Estadísticas</string>
     <string name="btn_acerca_de_nosotros">Acerca de nosotros :)</string>
     <string name="txt_salir">Salir</string>
+    <string name="img_logo">Logo</string>
+    <string name="txt_pregunta">Pregunta</string>
+    <string name="txt_banner_pregunta">Banner pregunta</string>
+    <string name="btn_rendirse">Rendirse</string>
 </resources>

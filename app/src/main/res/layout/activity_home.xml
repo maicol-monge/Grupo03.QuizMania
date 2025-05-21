@@ -1,116 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
-    android:backgroundTint="#FFFFFF"
-    android:orientation="vertical"
-    android:padding="50dp"
-    tools:context=".Home">
-
-
+    android:fillViewport="true">
 
     <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/main"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white"
-        android:layout_margin="10dp"
-        android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50dp"
+        tools:context=".Home">
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="match_parent"
-            android:layout_height="284dp"
-            android:contentDescription="@string/txt_img"
-            app:srcCompat="@drawable/logo_white" />
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/montserrat_extrabold"
-            android:paddingTop="5dp"
-            android:paddingBottom="5dp"
-            android:text="@string/txt_bienvenido_a_quizmania"
-            android:textAlignment="center"
-            android:textColor="#000000"
-            android:textSize="20sp"
-            android:textStyle="bold" />
 
         <LinearLayout
-            android:layout_width="350dp"
-            android:layout_height="400dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
             android:orientation="vertical"
-            android:gravity="bottom">
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="284dp"
+                android:contentDescription="@string/txt_img"
+                app:srcCompat="@drawable/logo_quizmania" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_regular"
-                android:paddingTop="35dp"
-                android:paddingBottom="10dp"
-                android:text="@string/txt_listo_para_poner_a_prueba_tus_conocimientos"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/txt_bienvenido_a_quizmania"
                 android:textAlignment="center"
-                android:textColor="#000000"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#4EE6B3"
-                android:drawableEnd="@drawable/signo_mas_white"
-                android:fontFamily="@font/montserrat_bold"
-                android:onClick="Iniciar"
-                android:text="@string/btn_iniciar"
-                android:textColor="#FFFFFF"
-                android:textColorLink="#FFFFFF"
-                android:layout_marginBottom="10dp"
-                android:textSize="18sp" />
+            <LinearLayout
+                android:layout_width="350dp"
+                android:layout_height="400dp"
+                android:orientation="vertical"
+                android:gravity="bottom">
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#ffcc00"
-                android:drawableEnd="@drawable/cuadrado_white"
-                android:fontFamily="@font/montserrat_bold"
-                android:onClick="Estadisticas"
-                android:text="@string/btn_mis_estad_sticas"
-                android:textColor="#FFFFFF"
-                android:textColorLink="#FFFFFF"
-                android:layout_marginBottom="10dp"
-                android:textSize="18sp" />
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:paddingTop="35dp"
+                    android:paddingBottom="10dp"
+                    android:text="@string/txt_listo_para_poner_a_prueba_tus_conocimientos"
+                    android:textAlignment="center"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#00a2e9"
-                android:drawableEnd="@drawable/circulo_white"
-                android:fontFamily="@font/montserrat_bold"
-                android:onClick="AcercaDe"
-                android:text="@string/btn_acerca_de_nosotros"
-                android:textColor="#FFFFFF"
-                android:textColorLink="#FFFFFF"
-                android:layout_marginBottom="10dp"
-                android:textSize="18sp" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#4EE6B3"
+                    android:drawableEnd="@drawable/signo_mas_white"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:onClick="Iniciar"
+                    android:text="@string/btn_iniciar"
+                    android:textColor="@color/boton_texto"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp" />
 
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="#ff3399"
-                android:drawableEnd="@drawable/triangulo_white"
-                android:fontFamily="@font/montserrat_bold"
-                android:onClick="Salir"
-                android:text="@string/txt_salir"
-                android:textColor="#FFFFFF"
-                android:textColorLink="#FFFFFF"
-                android:textSize="18sp" />
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#ffcc00"
+                    android:drawableEnd="@drawable/cuadrado_white"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:onClick="Estadisticas"
+                    android:text="@string/btn_mis_estad_sticas"
+                    android:textColor="@color/boton_texto"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#00a2e9"
+                    android:drawableEnd="@drawable/circulo_white"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:onClick="AcercaDe"
+                    android:text="@string/btn_acerca_de_nosotros"
+                    android:textColor="@color/boton_texto"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="18sp" />
+
+                <Button
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="#ff3399"
+                    android:drawableEnd="@drawable/triangulo_white"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:onClick="Salir"
+                    android:text="@string/txt_salir"
+                    android:textColor="@color/boton_texto"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
         </LinearLayout>
-
     </LinearLayout>
-</LinearLayout>
+</ScrollView>

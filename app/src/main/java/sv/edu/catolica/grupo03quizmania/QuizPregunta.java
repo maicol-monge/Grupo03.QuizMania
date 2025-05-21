@@ -1,6 +1,7 @@
 package sv.edu.catolica.grupo03quizmania;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
@@ -15,8 +16,10 @@ import com.google.android.material.progressindicator.CircularProgressIndicator;
 public class QuizPregunta extends AppCompatActivity {
 
     ProgressBar progressBar;
-    CircularProgressIndicator progressBarMaterial;
-    TextView tvPreguntaActual;
+    int totalPreguntas = 8;
+    int preguntaActual = 6;
+
+    TextView progresoTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,15 +32,20 @@ public class QuizPregunta extends AppCompatActivity {
             return insets;
         });
 
+        progressBar = findViewById(R.id.progressBarCircular);
+        actualizarProgreso();
 
-        progressBarMaterial = findViewById(R.id.progressBarMaterial); // Cuidado con el ID si cambias
-        tvPreguntaActual = findViewById(R.id.tvPreguntaActual);
+    }
 
-        int preguntaActual = 3;
-        int totalPreguntas = 8;
+    void actualizarProgreso() {
+        int progreso = (int) ((preguntaActual / (float) totalPreguntas) * 100);
+        progressBar.setProgress(progreso);
+    }
 
-        progressBarMaterial.setMax(totalPreguntas);
-        progressBarMaterial.setProgress(preguntaActual);
-        tvPreguntaActual.setText(String.valueOf(preguntaActual));
+    void siguientePregunta(View view) {
+        if (preguntaActual < totalPreguntas) {
+            preguntaActual++;
+            actualizarProgreso();
+        }
     }
 }
