@@ -78,7 +78,7 @@
                 android:background="@drawable/btn_style_rendirse"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                android:onClick="volverAInicio" />
+                android:onClick="volverAModoJuego" />
 
         </LinearLayout>
     </LinearLayout>

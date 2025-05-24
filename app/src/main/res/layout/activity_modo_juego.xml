@@ -22,8 +22,7 @@
             android:orientation="vertical"
             tools:ignore="UselessParent">
 
-            <!-- Mismo encabezado que las otras actividades -->
-
+            <!-- Encabezado -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,34 +46,16 @@
                     android:layout_height="133dp"
                     android:contentDescription="@string/txt_banner_pregunta"
                     app:srcCompat="@drawable/banner_pregunta" />
+            </LinearLayout>
 
-                <Button
-                    android:id="@+id/btnModoNormal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/signo_mas"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:text="@string/txt_modo_normal"
-                    android:textColor="@color/boton_texto"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="11sp"
-                    android:background="@drawable/btn_style_a"
-                    app:backgroundTint="@null"
-                    tools:ignore="RtlHardcoded" />
-
-                <Button
-                    android:id="@+id/btnModoHarryPotter"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:drawableLeft="@drawable/cuadrado"
-                    android:fontFamily="@font/montserrat_regular"
-                    android:text="@string/txt_modo_harry_potter"
-                    android:textColor="@color/boton_texto"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="11sp"
-                    android:background="@drawable/btn_style_b"
-                    app:backgroundTint="@null"
-                    tools:ignore="RtlHardcoded"/>
+            <!-- Contenedor dinámico para los botones de modos de juego -->
+            <LinearLayout
+                android:id="@+id/buttons_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="16dp">
+                <!-- Los botones se agregarán aquí dinámicamente -->
             </LinearLayout>
 
             <Button
@@ -89,7 +70,7 @@
                 android:background="@drawable/btn_style_rendirse"
                 android:textColor="@color/white"
                 app:backgroundTint="@null"
-                android:onClick="volverACategorias" />
+                android:onClick="volverAInicio" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

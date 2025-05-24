@@ -315,6 +315,8 @@ public class QuizPregunta extends AppCompatActivity {
         guardarResultado();
 
         // Regresar al menú principal o mostrar resultados
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
         finish();
     }
 

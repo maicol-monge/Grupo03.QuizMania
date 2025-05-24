@@ -36,5 +36,7 @@ public class Home extends AppCompatActivity {
     }
 
     public void Salir(View view) {
+        finishAffinity();
+        System.exit(0);
     }
 }

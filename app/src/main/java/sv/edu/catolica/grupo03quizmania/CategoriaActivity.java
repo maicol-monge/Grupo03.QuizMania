@@ -25,6 +25,9 @@ public class CategoriaActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria);
 
+        // Obtener el modo de juego seleccionado
+        idModoJuego = getIntent().getIntExtra("idModoJuego", 1);
+
         layoutBotones = findViewById(R.id.layoutBotonesCategorias);
         dbHelper = new QuizManiaDB(this);
 
@@ -36,12 +39,35 @@ public class CategoriaActivity extends AppCompatActivity {
         categorias = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
+        //Si el idModoJuego es 2, solo cargar la categoria con id 9
+        if (idModoJuego == 2) {
+            Cursor cursor = db.query(
+                    "Categoria",
+                    new String[]{"idCategoria", "nombre"},
+                    "idCategoria = ?",
+                    new String[]{"9"},
+                    null, null, null
+            );
+
+            while (cursor.moveToNext()) {
+                Categoria categoria = new Categoria(
+                        cursor.getInt(cursor.getColumnIndexOrThrow("idCategoria")),
+                        cursor.getString(cursor.getColumnIndexOrThrow("nombre"))
+                );
+                categorias.add(categoria);
+            }
+            cursor.close();
+            db.close();
+            return;
+        }
+        // Y si el modo de juego no es 2, cargar todas las categorias menos la 9
         Cursor cursor = db.query(
                 "Categoria",
                 new String[]{"idCategoria", "nombre"},
-                null, null, null, null, null
+                "idCategoria != ?",
+                new String[]{"9"},
+                null, null, null
         );
-
         while (cursor.moveToNext()) {
             Categoria categoria = new Categoria(
                     cursor.getInt(cursor.getColumnIndexOrThrow("idCategoria")),
@@ -51,6 +77,8 @@ public class CategoriaActivity extends AppCompatActivity {
         }
         cursor.close();
         db.close();
+
+
     }
 
     private void crearBotonesCategorias() {
@@ -107,6 +135,10 @@ public class CategoriaActivity extends AppCompatActivity {
 
             layoutBotones.addView(boton);
         }
+    }
+
+    public void volverAModoJuego(View view){
+        finish();
     }
 
     // Clase interna para representar una categoría
