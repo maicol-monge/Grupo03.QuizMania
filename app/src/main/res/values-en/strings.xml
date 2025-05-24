@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Grupo03.QuizMania</string>
+    <string name="txt_img">App Logo</string>
+    <string name="txt_bienvenido_a_quizmania">Welcome to QuizMania!</string>
+    <string name="txt_listo_para_poner_a_prueba_tus_conocimientos">Ready to test your knowledge?</string>
+    <string name="btn_iniciar">Start</string>
+    <string name="btn_mis_estad_sticas">My Stats</string>
+    <string name="btn_acerca_de_nosotros">About Us :)</string>
+    <string name="txt_salir">Exit</string>
+    <string name="img_logo">Logo</string>
+    <string name="txt_pregunta">Question</string>
+    <string name="txt_banner_pregunta">Question banner</string>
+    <string name="btn_rendirse">Give Up</string>
+    <string name="txt_selec_una_categoria">Select Select a category</string>
+    <string name="txt_atras">Back</string>
+    <string name="txt_seleccione_la_dificultad">Select difficulty</string>
+    <string name="txt_facil">Easy</string>
+    <string name="txt_medio">Medium</string>
+    <string name="txt_dificil">Hard</string>
+    <string name="txt_modo_normal">Normal Mode</string>
+    <string name="txt_modo_harry_potter">Harr Potter Mode</string>
+    <string name="txt_pregunta_ejemplo">In what year did the Berlin Wall fall?</string>
+    <string name="txt_selecciona_opcion">Select an option</string>
+</resources>

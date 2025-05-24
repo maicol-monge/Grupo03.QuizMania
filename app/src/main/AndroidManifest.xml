@@ -27,6 +27,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ModoJuegoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CategoriaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DificultadActivity"
+            android:exported="false" />
+        <activity android:name=".ResultadoPreguntaActivity" android:exported="false"/>
 
         <meta-data
             android:name="preloaded_fonts"

@@ -99,7 +99,7 @@
                     android:textAlignment="center"
                     android:textSize="11sp"
                     android:textStyle="bold"
-                    android:text="¿En qué año cayó el Muro de Berlín?"
+                    android:text="@string/txt_pregunta_ejemplo"
                     android:background="@drawable/box_style_pregunta"
                     app:backgroundTint="@null"
                     tools:ignore="HardcodedText" />
@@ -117,12 +117,13 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:text="Selecciona una opción"
+                    android:text="@string/txt_selecciona_opcion"
                     android:textAlignment="center"
                     android:textSize="15sp"
                     android:textStyle="bold" />
 
                 <Button
+                    android:id="@+id/opcion1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/signo_mas"
@@ -133,8 +134,9 @@
                     android:textSize="11sp"
                     android:background="@drawable/btn_style_a"
                     app:backgroundTint="@null"
-                    tools:ignore="RtlHardcoded"/>
+                    tools:ignore="RtlHardcoded" />
                 <Button
+                    android:id="@+id/opcion2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/cuadrado"
@@ -147,6 +149,7 @@
                     app:backgroundTint="@null"
                     tools:ignore="RtlHardcoded"/>
                 <Button
+                    android:id="@+id/opcion3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/circulo"
@@ -160,6 +163,7 @@
                     tools:ignore="RtlHardcoded" />
 
                 <Button
+                    android:id="@+id/opcion4"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="10dp"
@@ -176,6 +180,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/opcionRendirse"
                 android:layout_width="150dp"
                 android:layout_height="49dp"
                 android:layout_marginTop="15dp"

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50dp"
+        tools:context=".ModoJuegoActivity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <!-- Mismo encabezado que las otras actividades -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="bottom">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textAlignment="center"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:text="Seleccione el modo de juego" />
+
+                <ImageView
+                    android:id="@+id/imageView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="133dp"
+                    android:contentDescription="@string/txt_banner_pregunta"
+                    app:srcCompat="@drawable/banner_pregunta" />
+
+                <Button
+                    android:id="@+id/btnModoNormal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/signo_mas"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/txt_modo_normal"
+                    android:textColor="@color/boton_texto"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="11sp"
+                    android:background="@drawable/btn_style_a"
+                    app:backgroundTint="@null"
+                    tools:ignore="RtlHardcoded" />
+
+                <Button
+                    android:id="@+id/btnModoHarryPotter"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/cuadrado"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@string/txt_modo_harry_potter"
+                    android:textColor="@color/boton_texto"
+                    android:layout_marginBottom="10dp"
+                    android:textSize="11sp"
+                    android:background="@drawable/btn_style_b"
+                    app:backgroundTint="@null"
+                    tools:ignore="RtlHardcoded"/>
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/btnAtras"
+                android:layout_width="150dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/txt_atras"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"
+                android:background="@drawable/btn_style_rendirse"
+                android:textColor="@color/white"
+                app:backgroundTint="@null"
+                android:onClick="volverACategorias" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

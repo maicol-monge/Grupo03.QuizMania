@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Grupo03.QuizMania</string>
+    <string name="txt_img">Logo do App</string>
+    <string name="txt_bienvenido_a_quizmania">Bem-vindo ao QuizMania!</string>
+    <string name="txt_listo_para_poner_a_prueba_tus_conocimientos">"Pronto para testar seus conhecimentos? "</string>
+    <string name="btn_iniciar">Iniciar</string>
+    <string name="btn_mis_estad_sticas">"Minhas Estatísticas "</string>
+    <string name="btn_acerca_de_nosotros">"Sobre nós :) "</string>
+    <string name="txt_salir">Sair</string>
+    <string name="img_logo">Logo</string>
+    <string name="txt_pregunta">Pergunta</string>
+    <string name="txt_banner_pregunta">"Banner da pergunta "</string>
+    <string name="btn_rendirse">Desistir</string>
+    <string name="txt_selec_una_categoria">"Selecione uma categoria "</string>
+    <string name="txt_atras">Voltar</string>
+    <string name="txt_seleccione_la_dificultad">"Selecione a dificuldade "</string>
+    <string name="txt_facil">Fácil</string>
+    <string name="txt_medio">Médio</string>
+    <string name="txt_dificil">Difícil</string>
+    <string name="txt_modo_normal">"Modo Normal "</string>
+    <string name="txt_modo_harry_potter">"Modo Harry Potter "</string>
+    <string name="txt_pregunta_ejemplo">"Em que ano caiu o Muro de Berlim? "</string>
+    <string name="txt_selecciona_opcion">"Selecione uma opção  "</string>
+</resources>

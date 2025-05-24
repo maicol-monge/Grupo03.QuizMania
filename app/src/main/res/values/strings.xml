@@ -11,4 +11,15 @@
     <string name="txt_pregunta">Pregunta</string>
     <string name="txt_banner_pregunta">Banner pregunta</string>
     <string name="btn_rendirse">Rendirse</string>
+    <string name="txt_selec_una_categoria">Seleccione una categoría</string>
+    <string name="txt_atras">Atrás</string>
+    <string name="txt_seleccione_la_dificultad">Seleccione la dificultad</string>
+    <string name="txt_facil">Fácil</string>
+    <string name="txt_medio">Medio</string>
+    <string name="txt_dificil">Difícil</string>
+    <string name="txt_modo_normal">Modo Normal</string>
+    <string name="txt_modo_harry_potter">Modo Harry Potter</string>
+    <string name="txt_pregunta_ejemplo">¿En qué año cayó el Muro de Berlín?</string>
+    <string name="txt_selecciona_opcion">Selecciona una opción</string>
+
 </resources>
