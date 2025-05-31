@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <LinearLayout
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="50dp"
+        tools:context=".Home">
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="10dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="match_parent"
+                android:layout_height="284dp"
+                android:contentDescription="@string/txt_img"
+                app:srcCompat="@drawable/logo_quizmania" />
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/montserrat_extrabold"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="@string/texto_AcercaDe"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <Button
+                android:id="@+id/btnAtras"
+                android:layout_width="150dp"
+                android:layout_height="49dp"
+                android:layout_marginTop="15dp"
+                android:fontFamily="@font/montserrat_bold"
+                android:text="@string/txt_atras"
+                android:layout_marginBottom="10dp"
+                android:textSize="15sp"
+                android:background="@drawable/btn_style_rendirse"
+                android:textColor="@color/white"
+                app:backgroundTint="@null"
+                android:onClick="VolverAlHome" />
+
+
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

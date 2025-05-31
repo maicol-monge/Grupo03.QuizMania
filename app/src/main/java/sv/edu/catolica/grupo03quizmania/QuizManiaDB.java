@@ -81,6 +81,8 @@ public class QuizManiaDB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Normal')");       // idModoJuego 1
         db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Harry Potter')"); // idModoJuego 2
         db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Aleatorio')"); // idModoJuego 3
+        db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Cronometrado')"); // idModoJuego 4
+
 
         // --- Preguntas (puntaje 10 por defecto para todas) ---
 

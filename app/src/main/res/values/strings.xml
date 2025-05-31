@@ -21,5 +21,11 @@
     <string name="txt_modo_harry_potter">Modo Harry Potter</string>
     <string name="txt_pregunta_ejemplo">¿En qué año cayó el Muro de Berlín?</string>
     <string name="txt_selecciona_opcion">Selecciona una opción</string>
+    <string name="texto_AcercaDe">Somos un grupo de estudiantes de la Universidad Católica de El Salvador, que hemos creado QuizMania, una aplicación diseñada para poner a prueba tus conocimientos en diversas categorías. Nuestro objetivo es ofrecerte una experiencia divertida y educativa a través de un juego interactivo. ¡Esperamos que disfrutes jugando y aprendiendo con nosotros!</string>
+    <string name="tiempo">Seleccione el tiempo que quiere para cada pregunta</string>
+    <string name="_2_minuto">2 minuto</string>
+    <string name="_1_minuto">1 minuto</string>
+    <string name="_30_segundos">30 segundos</string>
+    <string name="_20_segundos">20 segundos</string>
 
 </resources>

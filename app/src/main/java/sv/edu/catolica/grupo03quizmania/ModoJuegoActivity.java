@@ -88,8 +88,42 @@ public class ModoJuegoActivity extends AppCompatActivity {
     }
 
     private void seleccionarModo(int modoJuego) {
-        Intent intent = new Intent(this, CategoriaActivity.class);
+        /*Intent intent = new Intent(this, CategoriaActivity.class);
         intent.putExtra("idModoJuego", modoJuego);
+        startActivity(intent);*/
+
+        Intent intent;
+
+        switch (modoJuego) {
+            case 1:
+                // Modo Normal
+                intent = new Intent(this, CategoriaActivity.class);
+                break;
+
+            case 2:
+                // Modo Difícil (por ejemplo)
+                intent = new Intent(this, CategoriaActivity.class);
+                break;
+
+            case 3:
+                // Otro modo especial (puedes cambiar esto)
+                intent = new Intent(this, CategoriaActivity.class);
+                break;
+
+            case 4:
+                // Modo Cronometrado
+                intent = new Intent(this, Modo_Cronometrado.class);
+                break;
+
+            default:
+                // Modo por defecto si no se reconoce el id
+                intent = new Intent(this, CategoriaActivity.class);
+                break;
+        }
+
+        // Si también necesitas pasar el id del modo de juego:
+        intent.putExtra("idModoJuego", modoJuego);
+        intent.putExtra("idCategoria", idCategoria); // si lo necesitas
         startActivity(intent);
     }
 

@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 public class DificultadActivity extends AppCompatActivity {
     private int idModoJuego;
     private int idCategoria;
+    private String valorCronometrado = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,11 @@ public class DificultadActivity extends AppCompatActivity {
 
         idCategoria = getIntent().getIntExtra("idCategoria", 1);
         idModoJuego = getIntent().getIntExtra("idModoJuego", 1);
+
+        /// //
+        valorCronometrado = getIntent().getStringExtra("ValorCronometrado");
+        if (valorCronometrado == null) valorCronometrado = "";
+        /// /
 
         Button btnFacil = findViewById(R.id.btnFacil);
         Button btnMedio = findViewById(R.id.btnMedio);
@@ -35,6 +41,9 @@ public class DificultadActivity extends AppCompatActivity {
         intent.putExtra("idCategoria", idCategoria);
         intent.putExtra("idDificultad", dificultad);
         intent.putExtra("idModoJuego", idModoJuego);
+
+        intent.putExtra("ValorCronometrado", valorCronometrado);
+
         startActivity(intent);
     }
 

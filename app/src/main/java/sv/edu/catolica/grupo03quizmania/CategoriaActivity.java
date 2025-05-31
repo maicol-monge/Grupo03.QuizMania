@@ -19,14 +19,41 @@ public class CategoriaActivity extends AppCompatActivity {
     private QuizManiaDB dbHelper;
     private List<Categoria> categorias;
     private int idModoJuego;
+    private String idModoJuegoStr = null;
+    private String ValorCronometrado = "";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria);
 
+
         // Obtener el modo de juego seleccionado
-        idModoJuego = getIntent().getIntExtra("idModoJuego", 1);
+        idModoJuegoStr = getIntent().getStringExtra("idModoJuego");
+        if (idModoJuegoStr != null) {
+            switch (idModoJuegoStr) {
+                case "UnMinuto":
+                    ValorCronometrado = "UnMinuto";
+                    break;
+                case "DosMinuto":
+                    ValorCronometrado = "DosMinuto";
+                    break;
+                case "TreintaSegundos":
+                    ValorCronometrado = "TreintaSegundos";
+                    break;
+                case "VeinteSegundos":
+                    ValorCronometrado = "VeinteSegundos";
+                    break;
+                default:
+                    ValorCronometrado = "";
+                    break;
+            }
+        }
+        else {
+            idModoJuego = getIntent().getIntExtra("idModoJuego", 1);
+        }
+
 
         layoutBotones = findViewById(R.id.layoutBotonesCategorias);
         dbHelper = new QuizManiaDB(this);
@@ -129,7 +156,13 @@ public class CategoriaActivity extends AppCompatActivity {
             boton.setOnClickListener(v -> {
                 Intent intent = new Intent(CategoriaActivity.this, DificultadActivity.class);
                 intent.putExtra("idCategoria", categoria.getIdCategoria());
-                intent.putExtra("idModoJuego", idModoJuego);
+                //intent.putExtra("idModoJuego", idModoJuego);
+
+                if (!ValorCronometrado.isEmpty()) {
+                    intent.putExtra("ValorCronometrado", ValorCronometrado); // como String
+                }
+                intent.putExtra("idModoJuego", idModoJuego); // como int
+
                 startActivity(intent);
             });
 

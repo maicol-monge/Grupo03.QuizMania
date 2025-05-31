@@ -1,6 +1,5 @@
 package sv.edu.catolica.grupo03quizmania;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -10,13 +9,13 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Home extends AppCompatActivity {
+public class AcercaDe extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_acerca_de);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
@@ -24,23 +23,10 @@ public class Home extends AppCompatActivity {
         });
     }
 
-    public void Iniciar(View view) {
-        Intent intent = new Intent(this, ModoJuegoActivity.class);
-        startActivity(intent);
+    public void VolverAlHome(View view) {
+        finish();
     }
 
-    public void Estadisticas(View view) {
-    }
 
-    public void AcercaDe(View view) {
-        Intent intent = new Intent(this, AcercaDe.class);
-        startActivity(intent);
 
-    }
-
-    public void Salir(View view) {
-
-        finishAffinity();
-        System.exit(0);
-    }
 }

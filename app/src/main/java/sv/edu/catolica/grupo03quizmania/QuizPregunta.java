@@ -45,6 +45,7 @@ public class QuizPregunta extends AppCompatActivity {
     private int idCategoria;
     private int idDificultad;
     private int idModoJuego;
+    private String valorCronometrado = "";
 
     TextView progresoTextView;
 
@@ -68,6 +69,16 @@ public class QuizPregunta extends AppCompatActivity {
         idCategoria = getIntent().getIntExtra("idCategoria", 1);
         idDificultad = getIntent().getIntExtra("idDificultad", 1);
         idModoJuego = getIntent().getIntExtra("idModoJuego", 1);
+
+
+
+
+        ///
+        valorCronometrado = getIntent().getStringExtra("ValorCronometrado");
+        if (valorCronometrado == null) valorCronometrado = "";
+        ///
+
+
 
         // Configurar título según modo de juego
         String titulo = (idModoJuego == 2) ? "Quiz de Harry Potter" : "Quiz Normal";
