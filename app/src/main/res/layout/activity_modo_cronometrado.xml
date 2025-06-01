@@ -61,8 +61,8 @@
                     android:backgroundTint="#4EE6B3"
                     android:drawableEnd="@drawable/signo_mas_white"
                     android:fontFamily="@font/montserrat_bold"
-                    android:onClick="DosMinuto"
-                    android:text="@string/_2_minuto"
+                    android:onClick="treintaSegundos"
+                    android:text="@string/treintaseg"
                     android:textColor="@color/white"
                     android:layout_marginBottom="10dp"
                     android:textSize="18sp" />
@@ -73,8 +73,8 @@
                     android:backgroundTint="#ffcc00"
                     android:drawableEnd="@drawable/cuadrado_white"
                     android:fontFamily="@font/montserrat_bold"
-                    android:onClick="UnMinutos"
-                    android:text="@string/_1_minuto"
+                    android:onClick="VeinteSegundos"
+                    android:text="@string/veinteseg"
                     android:textColor="@color/white"
                     android:layout_marginBottom="10dp"
                     android:textSize="18sp" />
@@ -85,8 +85,8 @@
                     android:backgroundTint="#00a2e9"
                     android:drawableEnd="@drawable/circulo_white"
                     android:fontFamily="@font/montserrat_bold"
-                    android:onClick="TreintaSegundos"
-                    android:text="@string/_30_segundos"
+                    android:onClick="DiezSegundos"
+                    android:text="@string/diezseg"
                     android:textColor="@color/white"
                     android:layout_marginBottom="10dp"
                     android:textSize="18sp" />
@@ -97,8 +97,8 @@
                     android:backgroundTint="#ff3399"
                     android:drawableEnd="@drawable/triangulo_white"
                     android:fontFamily="@font/montserrat_bold"
-                    android:onClick="VeinteSegundos"
-                    android:text="@string/_20_segundos"
+                    android:onClick="CincoSegundos"
+                    android:text="@string/cincoseg"
                     android:textColor="@color/white"
                     android:textSize="18sp" />
             </LinearLayout>

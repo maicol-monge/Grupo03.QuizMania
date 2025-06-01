@@ -1,8 +1,10 @@
 package sv.edu.catolica.grupo03quizmania;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -29,27 +31,27 @@ public class Modo_Cronometrado extends AppCompatActivity {
     }
 
 
-    public void DosMinuto(View view) {
+    public void treintaSegundos(View view) {
         Intent intent = new Intent(this, CategoriaActivity.class);
-        intent.putExtra("idModoJuego", "DosMinuto");
-        startActivity(intent);
-    }
-
-    public void UnMinutos(View view) {
-        Intent intent = new Intent(this, CategoriaActivity.class);
-        intent.putExtra("idModoJuego", "UnMinuto");
-        startActivity(intent);
-    }
-
-    public void TreintaSegundos(View view) {
-        Intent intent = new Intent(this, CategoriaActivity.class);
-        intent.putExtra("idModoJuego", "TreintaSegundos"); //Indica que seran 30 segundos
+        intent.putExtra("ValorCronometrado", "TreintaSegundos"); // Nombre consistente
         startActivity(intent);
     }
 
     public void VeinteSegundos(View view) {
         Intent intent = new Intent(this, CategoriaActivity.class);
-        intent.putExtra("idModoJuego", "VeinteSegundos"); //Indica que seran 20 segundos
+        intent.putExtra("ValorCronometrado", "VeinteSegundos"); // Nombre consistente
+        startActivity(intent);
+    }
+
+    public void DiezSegundos(View view) {
+        Intent intent = new Intent(this, CategoriaActivity.class);
+        intent.putExtra("ValorCronometrado", "DiezSegundos");
+        startActivity(intent);
+    }
+
+    public void CincoSegundos(View view) {
+        Intent intent = new Intent(this, CategoriaActivity.class);
+        intent.putExtra("ValorCronometrado", "CincoSegundos");
         startActivity(intent);
     }
 }

@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import java.util.Random;
+
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -101,13 +103,13 @@ public class ModoJuegoActivity extends AppCompatActivity {
                 break;
 
             case 2:
-                // Modo Difícil (por ejemplo)
+                // Modo Harry Potter
                 intent = new Intent(this, CategoriaActivity.class);
                 break;
 
             case 3:
-                // Otro modo especial (puedes cambiar esto)
-                intent = new Intent(this, CategoriaActivity.class);
+                // Modo Aleatorio
+                intent = new Intent(this, DificultadActivity.class);
                 break;
 
             case 4:

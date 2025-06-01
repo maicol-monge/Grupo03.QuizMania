@@ -18,42 +18,23 @@ public class CategoriaActivity extends AppCompatActivity {
     private LinearLayout layoutBotones;
     private QuizManiaDB dbHelper;
     private List<Categoria> categorias;
-    private int idModoJuego;
-    private String idModoJuegoStr = null;
-    private String ValorCronometrado = "";
-
+    private int idModoJuego = 1; // Valor por defecto
+    private String valorCronometrado = ""; // Nombre de variable en minúsculas
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categoria);
 
+        // Obtener parámetros del intent
+        Intent intent = getIntent();
+        valorCronometrado = intent.getStringExtra("ValorCronometrado"); // Nombre exacto del extra
 
-        // Obtener el modo de juego seleccionado
-        idModoJuegoStr = getIntent().getStringExtra("idModoJuego");
-        if (idModoJuegoStr != null) {
-            switch (idModoJuegoStr) {
-                case "UnMinuto":
-                    ValorCronometrado = "UnMinuto";
-                    break;
-                case "DosMinuto":
-                    ValorCronometrado = "DosMinuto";
-                    break;
-                case "TreintaSegundos":
-                    ValorCronometrado = "TreintaSegundos";
-                    break;
-                case "VeinteSegundos":
-                    ValorCronometrado = "VeinteSegundos";
-                    break;
-                default:
-                    ValorCronometrado = "";
-                    break;
-            }
+        // Manejar ambos casos (modo normal y cronometrado)
+        if (valorCronometrado == null || valorCronometrado.isEmpty()) {
+            // Modo normal (no cronometrado)
+            idModoJuego = intent.getIntExtra("idModoJuego", 1);
         }
-        else {
-            idModoJuego = getIntent().getIntExtra("idModoJuego", 1);
-        }
-
 
         layoutBotones = findViewById(R.id.layoutBotonesCategorias);
         dbHelper = new QuizManiaDB(this);
@@ -109,7 +90,6 @@ public class CategoriaActivity extends AppCompatActivity {
     }
 
     private void crearBotonesCategorias() {
-        // Limpiar layout antes de agregar botones
         layoutBotones.removeAllViews();
 
         for (int i = 0; i < categorias.size(); i++) {
@@ -119,7 +99,7 @@ public class CategoriaActivity extends AppCompatActivity {
             boton.setId(View.generateViewId());
             boton.setText(categoria.getNombre());
 
-            // Asignar diferentes estilos según la posición
+            // Asignar estilos según posición (manteniendo tu diseño actual)
             switch (i % 4) {
                 case 0:
                     boton.setBackgroundResource(R.drawable.btn_style_a);
@@ -139,7 +119,7 @@ public class CategoriaActivity extends AppCompatActivity {
                     break;
             }
 
-            // Estilos comunes
+            // Estilos comunes (sin cambios)
             boton.setTextColor(getResources().getColor(R.color.boton_texto));
             boton.setTextSize(11);
             boton.setPadding(16, 16, 16, 16);
@@ -151,17 +131,18 @@ public class CategoriaActivity extends AppCompatActivity {
             params.setMargins(0, 0, 0, 16);
             boton.setLayoutParams(params);
 
-            // Listener para el botón
-            int finalI = i;
+            // Listener mejorado para el botón
             boton.setOnClickListener(v -> {
                 Intent intent = new Intent(CategoriaActivity.this, DificultadActivity.class);
-                intent.putExtra("idCategoria", categoria.getIdCategoria());
-                //intent.putExtra("idModoJuego", idModoJuego);
 
-                if (!ValorCronometrado.isEmpty()) {
-                    intent.putExtra("ValorCronometrado", ValorCronometrado); // como String
+                // Siempre enviar estos parámetros
+                intent.putExtra("idCategoria", categoria.getIdCategoria());
+                intent.putExtra("idModoJuego", idModoJuego);
+
+                // Solo enviar ValorCronometrado si tiene contenido
+                if (valorCronometrado != null && !valorCronometrado.isEmpty()) {
+                    intent.putExtra("ValorCronometrado", valorCronometrado);
                 }
-                intent.putExtra("idModoJuego", idModoJuego); // como int
 
                 startActivity(intent);
             });

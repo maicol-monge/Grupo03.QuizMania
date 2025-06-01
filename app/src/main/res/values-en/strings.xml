@@ -22,4 +22,11 @@
     <string name="txt_modo_harry_potter">Harr Potter Mode</string>
     <string name="txt_pregunta_ejemplo">In what year did the Berlin Wall fall?</string>
     <string name="txt_selecciona_opcion">Select an option</string>
+    <string name="texto_acerda_de">We are a group of students from the Catholic University of El Salvador (UNICAES) who created QuizMania, an app designed to test your knowledge in different categories. Our goal is to provide you with a fun and educational experience through interactive games. We hope you have fun playing and learning with us!</string>
+    <string name="tiempo">Select the time you want for each question</string>
+    <string name="treintaseg">30 seconds</string>
+    <string name="veinteseg">20 seconds</string>
+    <string name="diezseg">10 seconds</string>
+    <string name="cincoseg">5 seconds</string>
+    <string name="iniciarTemporizador">00:00</string>
 </resources>
