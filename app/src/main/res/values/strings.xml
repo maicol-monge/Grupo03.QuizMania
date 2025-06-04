@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Grupo03.QuizMania</string>
+    <string name="app_name">QuizMania</string>
     <string name="txt_img">Logo de la App</string>
     <string name="txt_bienvenido_a_quizmania">¡Bienvenidos a QuizMania!</string>
     <string name="txt_listo_para_poner_a_prueba_tus_conocimientos">¿Listo para poner a prueba tus conocimientos?</string>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Grupo03.QuizMania</string>
+    <string name="app_name">QuizMania</string>
     <string name="txt_img">Logo do App</string>
     <string name="txt_bienvenido_a_quizmania">Bem-vindo ao QuizMania!</string>
     <string name="txt_listo_para_poner_a_prueba_tus_conocimientos">"Pronto para testar seus conhecimentos? "</string>
