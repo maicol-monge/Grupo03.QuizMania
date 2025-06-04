@@ -59,6 +59,26 @@
     <string name="txt_dificultad">Difficulty:</string>
     <string name="txt_fecha">Date:</string>
     <string name="txt_puntuaci_n">Score:</string>
+    <string name="txt_est_s_seguro_que_se_deseas_rendirte">Are you sure you want to give up?</string>
+    <string name="txt_no">No</string>
+    <string name="txt_s">Yes</string>
+    <string name="txt_resultado">Result</string>
+    <string name="btn_continuar">Continue</string>
+    <string name="txt_respuesta_correcta">Correct Answer!</string>
+    <string name="txt_respuesta_incorrecta">Incorrect Answer</string>
+    <string name="txt_la_respuesta_correcta_era">The correct answer was:</string>
+    <string name="txt_puntos_obtenidos">\n\nPoints obtained: </string>
+    <string name="head_puntos_obtenidos">Points obtained</string>
+    <string name="txt_puntuaci_n_acumulada">Accumulated score</string>
+    <string name="txt_preguntas_n_correctas">Questions \n Correct:</string>
+    <string name="txt_preguntas_incorrectas">Questions Incorrect:</string>
+    <string name="txt_puntuaci_n_total_final">Final Total Score:</string>
+    <string name="btn_finalizar">Finish</string>
+    <string name="txt_bien_jugado">Well Played!</string>
+    <string name="txt_buen_intento">Good try!</string>
+    <string name="txt_nada_mal">Not bad!</string>
+    <string name="txt_sin_comentarios">No comments…</string>
+    <string name="noti_tiempo_agotado">Time\'s up!</string>
 
 
 </resources>

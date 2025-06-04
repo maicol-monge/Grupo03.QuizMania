@@ -34,9 +34,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="24sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
                 android:layout_marginBottom="16dp"
-                android:text="Resultado"/>
+                android:text="@string/txt_resultado"/>
 
             <TextView
                 android:id="@+id/tvPuntuacion"
@@ -55,17 +55,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/montserrat_regular"
-                android:padding="10dp"
+                android:padding="15dp"
                 android:textAlignment="center"
-                android:textSize="11sp"
-                android:textStyle="bold"
-                android:text="explicación de la pregunta"
+                android:textSize="17sp"
+                android:text=""
                 android:background="@drawable/box_style_pregunta"
                 app:backgroundTint="@null"
                 tools:ignore="HardcodedText" />
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="400dp"
+                android:layout_height="250dp"
                 android:layout_margin="10dp">
 
                 <Button
@@ -74,7 +73,7 @@
                     android:layout_height="49dp"
                     android:layout_marginTop="15dp"
                     android:fontFamily="@font/montserrat_bold"
-                    android:text="Continuar"
+                    android:text="@string/btn_continuar"
                     android:layout_marginBottom="10dp"
                     android:textSize="15sp"
                     android:background="@drawable/btn_style_seguir"

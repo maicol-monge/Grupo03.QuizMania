@@ -1,13 +1,14 @@
 package sv.edu.catolica.grupo03quizmania;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 public class ResultadoPreguntaActivity extends AppCompatActivity {
 
@@ -33,15 +34,19 @@ public class ResultadoPreguntaActivity extends AppCompatActivity {
         Button btnContinuar = findViewById(R.id.btnContinuar);
 
         if (esCorrecta) {
-            tvResultado.setText("¡Respuesta Correcta!");
+            tvResultado.setText(getString(R.string.txt_respuesta_correcta));
             tvResultado.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
         } else {
-            tvResultado.setText("Respuesta Incorrecta");
+            tvResultado.setText(getString(R.string.txt_respuesta_incorrecta));
             tvResultado.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
-            tvPuntuacion.setText("La respuesta correcta era: " + respuestaCorrecta);
+            tvPuntuacion.setText(getString(R.string.txt_la_respuesta_correcta_era) + " " + respuestaCorrecta);
         }
 
-        tvPuntuacion.append("\nPuntos obtenidos: " + puntajePregunta);
+        tvPuntuacion.append(getString(R.string.txt_puntos_obtenidos) + " " + puntajePregunta);
+        tvPuntuacion.setTypeface(null, android.graphics.Typeface.BOLD);
+        Typeface montserrat = ResourcesCompat.getFont(this, R.font.montserrat_bold);
+        tvPuntuacion.setTypeface(montserrat);
+        tvPuntuacion.setPadding(16, 16, 16, 16);
         tvExplicacion.setText(explicacion);
 
         // Configurar botón para continuar

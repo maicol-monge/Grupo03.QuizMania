@@ -58,6 +58,26 @@
     <string name="txt_dificultad">Dificultad:</string>
     <string name="txt_fecha">Fecha:</string>
     <string name="txt_puntuaci_n">Puntuación:</string>
+    <string name="txt_est_s_seguro_que_se_deseas_rendirte">¿Estás seguro que se deseas rendirte?</string>
+    <string name="txt_no">No</string>
+    <string name="txt_s">Sí</string>
+    <string name="txt_resultado">Resultado</string>
+    <string name="btn_continuar">Continuar</string>
+    <string name="txt_respuesta_correcta">¡Respuesta Correcta!</string>
+    <string name="txt_respuesta_incorrecta">Respuesta Incorrecta</string>
+    <string name="txt_la_respuesta_correcta_era">"La respuesta correcta era: "</string>
+    <string name="txt_puntos_obtenidos">"\n\nPuntos obtenidos: "</string>
+    <string name="head_puntos_obtenidos">Puntos Obtenidos</string>
+    <string name="txt_puntuaci_n_acumulada">Puntuación acumulada</string>
+    <string name="txt_preguntas_n_correctas">Preguntas \n Correctas:</string>
+    <string name="txt_preguntas_incorrectas">Preguntas Incorrectas:</string>
+    <string name="txt_puntuaci_n_total_final">Puntuación Total Final:</string>
+    <string name="btn_finalizar">Finalizar</string>
+    <string name="txt_bien_jugado">¡Bien Jugado!</string>
+    <string name="txt_buen_intento">¡Buen intento!</string>
+    <string name="txt_nada_mal">¡Nada mal!</string>
+    <string name="txt_sin_comentarios">Sin comentarios…</string>
+    <string name="noti_tiempo_agotado">¡Tiempo agotado!</string>
 
 
 </resources>

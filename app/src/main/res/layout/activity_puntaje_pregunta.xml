@@ -27,16 +27,17 @@
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
                 android:contentDescription="@string/txt_banner_pregunta"
-                app:srcCompat="@drawable/banner_puntaje" />
+                app:srcCompat="@drawable/banner_puntaje"
+                tools:ignore="ImageContrastCheck" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textSize="24sp"
-                android:textStyle="bold"
+                android:fontFamily="@font/montserrat_bold"
                 android:layout_marginBottom="20dp"
-                android:text="Puntos Obtenidos"/>
+                android:text="@string/head_puntos_obtenidos"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -44,10 +45,9 @@
                 android:fontFamily="@font/montserrat_bold"
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp"
-                android:text="Puntuación acumulada"
+                android:text="@string/txt_puntuaci_n_acumulada"
                 android:textAlignment="center"
-                android:textSize="15sp"
-                android:textStyle="bold" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/tvPuntaje"
@@ -71,7 +71,7 @@
                     android:layout_width="150dp"
                     android:layout_height="49dp"
                     android:fontFamily="@font/montserrat_bold"
-                    android:text="Rendirse"
+                    android:text="@string/btn_rendirse"
                     android:textSize="15sp"
                     android:background="@drawable/btn_style_rendirse"
                     android:textColor="@color/white"
@@ -85,7 +85,7 @@
                     android:layout_width="150dp"
                     android:layout_height="49dp"
                     android:fontFamily="@font/montserrat_bold"
-                    android:text="Continuar"
+                    android:text="@string/btn_continuar"
                     android:textSize="15sp"
                     android:background="@drawable/btn_style_seguir"
                     android:textColor="@color/white"

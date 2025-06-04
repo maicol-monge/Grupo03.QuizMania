@@ -97,7 +97,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:textAlignment="center"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:text="@string/txt_pregunta" />
 
@@ -106,10 +106,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_regular"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    android:padding="10dp"
                     android:textAlignment="center"
-                    android:textSize="11sp"
+                    android:textSize="15sp"
                     android:textStyle="bold"
                     android:text="@string/txt_pregunta_ejemplo"
                     android:background="@drawable/box_style_pregunta"
@@ -131,7 +130,7 @@
                     android:paddingBottom="10dp"
                     android:text="@string/txt_selecciona_opcion"
                     android:textAlignment="center"
-                    android:textSize="15sp"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <Button
@@ -140,10 +139,10 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/signo_mas"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="1988"
+                    android:text=""
                     android:textColor="@color/boton_texto"
                     android:layout_marginBottom="10dp"
-                    android:textSize="11sp"
+                    android:textSize="15sp"
                     android:background="@drawable/btn_style_a"
                     app:backgroundTint="@null"
                     tools:ignore="RtlHardcoded" />
@@ -153,10 +152,10 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/cuadrado"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="1989"
+                    android:text=""
                     android:textColor="@color/boton_texto"
                     android:layout_marginBottom="10dp"
-                    android:textSize="11sp"
+                    android:textSize="15sp"
                     android:background="@drawable/btn_style_b"
                     app:backgroundTint="@null"
                     tools:ignore="RtlHardcoded"/>
@@ -166,10 +165,10 @@
                     android:layout_height="wrap_content"
                     android:drawableLeft="@drawable/circulo"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="1990"
+                    android:text=""
                     android:textColor="@color/boton_texto"
                     android:layout_marginBottom="10dp"
-                    android:textSize="11sp"
+                    android:textSize="15sp"
                     android:background="@drawable/btn_style_c"
                     app:backgroundTint="@null"
                     tools:ignore="RtlHardcoded" />
@@ -182,9 +181,9 @@
                     android:background="@drawable/btn_style_d"
                     android:drawableLeft="@drawable/triangulo"
                     android:fontFamily="@font/montserrat_regular"
-                    android:text="1991"
+                    android:text=""
                     android:textColor="@color/boton_texto"
-                    android:textSize="11sp"
+                    android:textSize="15sp"
                     app:backgroundTint="@null"
                     tools:ignore="RtlHardcoded" />
 

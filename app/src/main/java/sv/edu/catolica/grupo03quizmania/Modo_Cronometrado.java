@@ -36,6 +36,7 @@ public class Modo_Cronometrado extends AppCompatActivity {
         intent.putExtra("ValorCronometrado", "TreintaSegundos"); // Nombre consistente
         intent.putExtra("idModoJuego", 4); // Aseguramos que se use el modo cronometrado
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void VeinteSegundos(View view) {
@@ -43,6 +44,7 @@ public class Modo_Cronometrado extends AppCompatActivity {
         intent.putExtra("ValorCronometrado", "VeinteSegundos"); // Nombre consistente
         intent.putExtra("idModoJuego", 4); // Aseguramos que se use el modo cronometrado
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void DiezSegundos(View view) {
@@ -50,6 +52,7 @@ public class Modo_Cronometrado extends AppCompatActivity {
         intent.putExtra("ValorCronometrado", "DiezSegundos");
         intent.putExtra("idModoJuego", 4); // Aseguramos que se use el modo cronometrado
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void CincoSegundos(View view) {
@@ -57,6 +60,7 @@ public class Modo_Cronometrado extends AppCompatActivity {
         intent.putExtra("ValorCronometrado", "CincoSegundos");
         intent.putExtra("idModoJuego", 4); // Aseguramos que se use el modo cronometrado
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void home(View view) {

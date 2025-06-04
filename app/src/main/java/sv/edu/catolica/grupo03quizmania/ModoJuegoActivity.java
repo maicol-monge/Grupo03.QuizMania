@@ -142,6 +142,7 @@ public class ModoJuegoActivity extends AppCompatActivity {
         intent.putExtra("idModoJuego", modoJuego);
         intent.putExtra("idCategoria", idCategoria); // si lo necesitas
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private String traducirModoJuego(String nombreModoBD) {

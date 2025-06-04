@@ -27,16 +27,19 @@ public class Home extends AppCompatActivity {
     public void Iniciar(View view) {
         Intent intent = new Intent(this, ModoJuegoActivity.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void Estadisticas(View view) {
         Intent intent = new Intent(this, MisEstadisticas.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void AcercaDe(View view) {
         Intent intent = new Intent(this, AcercaDe.class);
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
 
     }
 

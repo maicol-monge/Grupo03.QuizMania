@@ -119,6 +119,7 @@ public class DificultadActivity extends AppCompatActivity {
         intent.putExtra("ValorCronometrado", valorCronometrado);
 
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     public void volverACategorias(View view) {

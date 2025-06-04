@@ -117,6 +117,6 @@ public class MisEstadisticas extends AppCompatActivity {
     }
 
     public void btnMenuPrincipal(View view) {
-        finish(); // o ir a otra actividad si prefieres
+        finish();
     }
 }

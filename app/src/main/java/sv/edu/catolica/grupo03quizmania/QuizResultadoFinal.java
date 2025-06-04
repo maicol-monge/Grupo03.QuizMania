@@ -64,7 +64,7 @@ public class QuizResultadoFinal extends AppCompatActivity {
 
         if (esModoAleatorio) {
             // Si es modo aleatorio
-            tvCategoria.setText("Mixta");
+            tvCategoria.setText(R.string.txt_mixto);
             insertarEnHistorial(idModoJuego, idDificultad, puntajeTotal, fechaActual);
         } else {
             tvCategoria.setText(categoria);
@@ -73,14 +73,14 @@ public class QuizResultadoFinal extends AppCompatActivity {
 
 
         // Mostrar datos en la UI
-        if (preguntasCorrectas > 6 && puntajeTotal <= 8) {
-            tvEncabezado.setText("¡Bien Jugado!");
-        } else if (preguntasCorrectas > 3 && preguntasCorrectas <= 6) {
-            tvEncabezado.setText("¡Buen intento!");
+        if (preguntasCorrectas >= 7 && puntajeTotal <= 8) {
+            tvEncabezado.setText(R.string.txt_bien_jugado);
+        } else if (preguntasCorrectas >= 4 && preguntasCorrectas <= 6) {
+            tvEncabezado.setText(R.string.txt_buen_intento);
         } else if (preguntasCorrectas > 0 && preguntasCorrectas <= 3) {
-            tvEncabezado.setText("¡No te preocupes! \n ¡Puedes intentarlo de nuevo!");
-        } else {
-            tvEncabezado.setText("Sin comentarios... \n ¡Suerte para la proxima!");
+            tvEncabezado.setText(R.string.txt_nada_mal);
+        } else if (preguntasCorrectas == 0) {
+            tvEncabezado.setText(R.string.txt_sin_comentarios);
         }
 
         tvPuntajeFinal.setText(String.valueOf(puntajeTotal));
@@ -154,5 +154,6 @@ public class QuizResultadoFinal extends AppCompatActivity {
         Intent intent = new Intent(this, Home.class);
         startActivity(intent);
         finish();
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 }

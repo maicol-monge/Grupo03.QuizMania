@@ -58,6 +58,27 @@
     <string name="txt_dificultad">Dificuldade:</string>
     <string name="txt_fecha">Data:</string>
     <string name="txt_puntuaci_n">Pontuação:</string>
+    <string name="txt_est_s_seguro_que_se_deseas_rendirte">Você tem certeza de que deseja desistir?</string>
+    <string name="txt_no">Não</string>
+    <string name="txt_s">Sim</string>
+    <string name="txt_resultado">Resultado</string>
+    <string name="btn_continuar">Continuar</string>
+    <string name="txt_respuesta_correcta">Resposta Correta</string>
+    <string name="txt_respuesta_incorrecta">Resposta Incorreta</string>
+    <string name="txt_la_respuesta_correcta_era">A resposta correta é: </string>
+    <string name="txt_puntos_obtenidos">\n\nPontos obtidos: </string>
+    <string name="head_puntos_obtenidos">Pontos obtidos</string>
+    <string name="txt_puntuaci_n_acumulada">Pontuação acumulada</string>
+    <string name="txt_preguntas_n_correctas">Perguntas \n Corretas:</string>
+    <string name="txt_preguntas_incorrectas">Perguntas Incorretas:</string>
+    <string name="txt_puntuaci_n_total_final">Pontuação Total Final:</string>
+    <string name="btn_finalizar">Finalizar</string>
+    <string name="txt_bien_jugado">Bem Jogado!</string>
+    <string name="txt_buen_intento">Bom esforço!</string>
+    <string name="txt_nada_mal">Nada mal!</string>
+    <string name="txt_sin_comentarios">Sem comentários…</string>
+    <string name="noti_tiempo_agotado">Tempo esgotado!</string>
+
 
 
 

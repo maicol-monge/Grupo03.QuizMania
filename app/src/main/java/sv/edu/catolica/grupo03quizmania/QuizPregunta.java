@@ -348,7 +348,7 @@ public class QuizPregunta extends AppCompatActivity {
         preguntasIncorrectas++;
 
         // Mostrar mensaje
-        Toast.makeText(this, "¡Tiempo agotado!", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, getString(R.string.noti_tiempo_agotado), Toast.LENGTH_SHORT).show();
 
         // Preparar Intent para mostrar resultado (como respuesta incorrecta)
         Intent intent = new Intent(this, ResultadoPreguntaActivity.class);
@@ -531,6 +531,7 @@ public class QuizPregunta extends AppCompatActivity {
         intent.putExtra("preguntasIncorrectas", preguntasIncorrectas);
 
         startActivity(intent);
+        overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
     }
 
     private static class Pregunta {
