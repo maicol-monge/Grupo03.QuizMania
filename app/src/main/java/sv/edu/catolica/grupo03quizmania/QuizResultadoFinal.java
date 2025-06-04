@@ -72,8 +72,9 @@ public class QuizResultadoFinal extends AppCompatActivity {
         }
 
 
+        Log.e("Preguntas Correctas", "Cantidad: " + preguntasCorrectas);
         // Mostrar datos en la UI
-        if (preguntasCorrectas >= 7 && puntajeTotal <= 8) {
+        if (preguntasCorrectas >= 7 && preguntasCorrectas <= 8) {
             tvEncabezado.setText(R.string.txt_bien_jugado);
         } else if (preguntasCorrectas >= 4 && preguntasCorrectas <= 6) {
             tvEncabezado.setText(R.string.txt_buen_intento);
