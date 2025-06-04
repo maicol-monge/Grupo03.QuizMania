@@ -29,4 +29,36 @@
     <string name="diezseg">10 segundos</string>
     <string name="cincoseg">5 segundos</string>
     <string name="iniciarTemporizador">00:00</string>
+    <string name="txt_seleccione_el_modo_de_juego">Selecione o modo de jogo</string>
+    <string name="modo_normal">Normal</string>
+    <string name="modo_harry_potter">Harry Potter</string>
+    <string name="modo_aleatorio">Aleatório</string>
+    <string name="modo_cronometrado">Temporizador</string>
+
+    <string name="cat_historia">História</string>
+    <string name="cat_ciencia">Ciência</string>
+    <string name="cat_geografia">Geografia</string>
+    <string name="cat_arte">Arte</string>
+    <string name="cat_literatura">Literatura</string>
+    <string name="cat_cine">Cinema</string>
+    <string name="cat_musica">Música</string>
+    <string name="cat_actualidad">Atualidades</string>
+    <string name="cat_harry_potter">Harry Potter</string>
+
+    <string name="txt_est_s_listo">Você está pronto?</string>
+    <string name="txt_mixto">Misturado</string>
+    <string name="txt_mis_estad_sticas">Minhas Estatísticas</string>
+    <string name="txt_mi_top_3_de_mejores_puntajes">Meu top 3 de melhores pontuações</string>
+    <string name="txt_mi_top_1">Meu top 1</string>
+    <string name="txt_mi_top_2">Meu top 2</string>
+    <string name="txt_mi_top_3">Meu top 3</string>
+    <string name="txt_historial_de_puntajes">Histórico de pontuações</string>
+    <string name="txt_modo_de_juego">Modo de jogo:</string>
+    <string name="txt_categor_a">Categoria:</string>
+    <string name="txt_dificultad">Dificuldade:</string>
+    <string name="txt_fecha">Data:</string>
+    <string name="txt_puntuaci_n">Pontuação:</string>
+
+
+
 </resources>

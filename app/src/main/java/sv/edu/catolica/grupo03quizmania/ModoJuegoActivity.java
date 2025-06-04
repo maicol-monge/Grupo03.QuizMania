@@ -3,15 +3,17 @@ package sv.edu.catolica.grupo03quizmania;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import java.util.Random;
 
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.res.ResourcesCompat;
 
 public class ModoJuegoActivity extends AppCompatActivity {
 
@@ -50,29 +52,42 @@ public class ModoJuegoActivity extends AppCompatActivity {
 
                     // Crear botón dinámicamente
                     Button btnModo = new Button(this);
-                    btnModo.setText(nombreModo);
+                    btnModo.setText(traducirModoJuego(nombreModo));
                     btnModo.setLayoutParams(new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT,
                             LinearLayout.LayoutParams.WRAP_CONTENT));
 
-                    // Estilo del botón (puedes personalizar según el modo)
-                    if (idModo % 2 == 0) {
-                        btnModo.setBackgroundResource(R.drawable.btn_style_b);
-                        btnModo.setCompoundDrawablesWithIntrinsicBounds(R.drawable.cuadrado, 0, 0, 0);
-                    } else {
-                        btnModo.setBackgroundResource(R.drawable.btn_style_a);
-                        btnModo.setCompoundDrawablesWithIntrinsicBounds(R.drawable.signo_mas, 0, 0, 0);
+                    switch (idModo % 4) {
+                        case 1:
+                            btnModo.setBackgroundResource(R.drawable.btn_style_signo_mas);
+                            btnModo.setCompoundDrawablesWithIntrinsicBounds(R.drawable.signo_mas_white, 0, 0, 0);
+                            break;
+                        case 2:
+                            btnModo.setBackgroundResource(R.drawable.btn_style_harry_potter);
+                            btnModo.setCompoundDrawablesWithIntrinsicBounds(R.drawable.harry_potter, 0, 0, 0);
+                            break;
+                        case 3:
+                            btnModo.setBackgroundResource(R.drawable.btn_style_circulo);
+                            btnModo.setCompoundDrawablesWithIntrinsicBounds(R.drawable.circulo_white, 0, 0, 0);
+                            break;
+                        case 0:
+                            btnModo.setBackgroundResource(R.drawable.btn_style_triangulo);
+                            btnModo.setCompoundDrawablesWithIntrinsicBounds(R.drawable.triangulo_white, 0, 0, 0);
+                            break;
                     }
 
-                    btnModo.setTextColor(getResources().getColor(R.color.boton_texto));
-                    btnModo.setTextSize(11);
+                    btnModo.setTextColor(getResources().getColor(R.color.white));
+                    btnModo.setTextSize(20);
+                    btnModo.setTypeface(null, android.graphics.Typeface.BOLD);
+                    Typeface montserrat = ResourcesCompat.getFont(this, R.font.montserrat_bold);
+                    btnModo.setTypeface(montserrat);
                     btnModo.setPadding(16, 16, 16, 16);
                     btnModo.setCompoundDrawablePadding(16);
                     btnModo.setAllCaps(false);
 
                     // Margen inferior
                     LinearLayout.LayoutParams params = (LinearLayout.LayoutParams) btnModo.getLayoutParams();
-                    params.setMargins(0, 0, 0, 16);
+                    params.setMargins(16, 16, 16, 16);
                     btnModo.setLayoutParams(params);
 
                     // Asignar listener
@@ -113,7 +128,7 @@ public class ModoJuegoActivity extends AppCompatActivity {
                 break;
 
             case 4:
-                // Modo Cronometrado
+                // Modo Temporizador
                 intent = new Intent(this, Modo_Cronometrado.class);
                 break;
 
@@ -129,6 +144,22 @@ public class ModoJuegoActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private String traducirModoJuego(String nombreModoBD) {
+        switch (nombreModoBD.toLowerCase()) {
+            case "normal":
+                return getString(R.string.modo_normal);
+            case "harry potter":
+                return getString(R.string.modo_harry_potter);
+            case "aleatorio":
+                return getString(R.string.modo_aleatorio);
+            case "temporizador":
+                return getString(R.string.modo_cronometrado);
+            default:
+                return nombreModoBD; // Si no se encuentra, devuelve el texto original
+        }
+    }
+
+
     public void volverAInicio(View view) {
         finish();
     }
@@ -142,5 +173,11 @@ public class ModoJuegoActivity extends AppCompatActivity {
         if (dbHelper != null) {
             dbHelper.close();
         }
+    }
+
+    public void home(View view) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+        finish();
     }
 }

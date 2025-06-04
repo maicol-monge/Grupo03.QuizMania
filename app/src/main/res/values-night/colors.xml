@@ -1,3 +1,4 @@
 <resources>
     <color name="boton_texto">#FFFFFF</color> <!-- Blanco -->
+    <color name="temporizador">#FFFFFF</color>
 </resources>

@@ -30,6 +30,8 @@ public class Home extends AppCompatActivity {
     }
 
     public void Estadisticas(View view) {
+        Intent intent = new Intent(this, MisEstadisticas.class);
+        startActivity(intent);
     }
 
     public void AcercaDe(View view) {

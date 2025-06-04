@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true">
 
     <LinearLayout
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="50dp"
         tools:context=".Modo_Cronometrado">
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -22,12 +23,23 @@
             android:orientation="vertical"
             tools:ignore="UselessParent">
 
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_marginBottom="15dp"
+                android:onClick="home"
+                android:layout_gravity="start"
+                app:srcCompat="@drawable/home_icon"
+                tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+
             <!-- Encabezado -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:gravity="bottom">
+                android:gravity="bottom"
+                tools:ignore="UseCompoundDrawables">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -36,7 +48,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:textAlignment="center"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
                     android:text="@string/tiempo" />
 
@@ -45,7 +57,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="133dp"
                     android:contentDescription="@string/txt_banner_pregunta"
-                    app:srcCompat="@drawable/banner_pregunta" />
+                    app:srcCompat="@drawable/banner_tempo"
+                    tools:ignore="ImageContrastCheck" />
             </LinearLayout>
 
             <LinearLayout
@@ -53,46 +66,49 @@
                 android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:gravity="bottom">
+                android:gravity="center_horizontal">
 
                 <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:backgroundTint="#4EE6B3"
                     android:drawableEnd="@drawable/signo_mas_white"
                     android:fontFamily="@font/montserrat_bold"
                     android:onClick="treintaSegundos"
                     android:text="@string/treintaseg"
                     android:textColor="@color/white"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:backgroundTint="#ffcc00"
                     android:drawableEnd="@drawable/cuadrado_white"
                     android:fontFamily="@font/montserrat_bold"
                     android:onClick="VeinteSegundos"
                     android:text="@string/veinteseg"
                     android:textColor="@color/white"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
                     android:backgroundTint="#00a2e9"
                     android:drawableEnd="@drawable/circulo_white"
                     android:fontFamily="@font/montserrat_bold"
                     android:onClick="DiezSegundos"
                     android:text="@string/diezseg"
                     android:textColor="@color/white"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="18sp" />
+                    android:textSize="18sp"
+                    tools:ignore="TextContrastCheck" />
 
                 <Button
-                    android:layout_width="match_parent"
+                    android:layout_width="300dp"
                     android:layout_height="wrap_content"
                     android:backgroundTint="#ff3399"
                     android:drawableEnd="@drawable/triangulo_white"

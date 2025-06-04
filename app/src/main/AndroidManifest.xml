@@ -13,6 +13,18 @@
         android:theme="@style/Theme.Grupo03QuizMania"
         tools:targetApi="31">
         <activity
+            android:name=".MisEstadisticas"
+            android:exported="false" />
+        <activity
+            android:name=".Rendirse"
+            android:exported="false" />
+        <activity
+            android:name=".QuizResultadoFinal"
+            android:exported="false" />
+        <activity
+            android:name=".PuntajePregunta"
+            android:exported="false" />
+        <activity
             android:name=".Modo_Cronometrado"
             android:exported="false" />
         <activity

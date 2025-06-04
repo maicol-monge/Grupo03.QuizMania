@@ -7,7 +7,7 @@
     <string name="btn_iniciar">Start</string>
     <string name="btn_mis_estad_sticas">My Stats</string>
     <string name="btn_acerca_de_nosotros">About Us :)</string>
-    <string name="txt_salir">Exit</string>
+    <string name="txt_salir">Quit</string>
     <string name="img_logo">Logo</string>
     <string name="txt_pregunta">Question</string>
     <string name="txt_banner_pregunta">Question banner</string>
@@ -29,4 +29,36 @@
     <string name="diezseg">10 seconds</string>
     <string name="cincoseg">5 seconds</string>
     <string name="iniciarTemporizador">00:00</string>
+    <string name="txt_seleccione_el_modo_de_juego">Select the game mode</string>
+
+    <string name="modo_normal">Normal</string>
+    <string name="modo_harry_potter">Harry Potter</string>
+    <string name="modo_aleatorio">Random</string>
+    <string name="modo_cronometrado">Timer</string>
+
+    <string name="cat_historia">History</string>
+    <string name="cat_ciencia">Science</string>
+    <string name="cat_geografia">Geography</string>
+    <string name="cat_arte">Art</string>
+    <string name="cat_literatura">Literature</string>
+    <string name="cat_cine">Cinema</string>
+    <string name="cat_musica">Music</string>
+    <string name="cat_actualidad">Current Affairs</string>
+    <string name="cat_harry_potter">Harry Potter</string>
+
+    <string name="txt_est_s_listo">Are you ready?</string>
+    <string name="txt_mixto">Mixed</string>
+    <string name="txt_mis_estad_sticas">My Stats</string>
+    <string name="txt_mi_top_3_de_mejores_puntajes">My top 3 best scores</string>
+    <string name="txt_mi_top_1">My top 1</string>
+    <string name="txt_mi_top_2">My top 2</string>
+    <string name="txt_mi_top_3">My top 3</string>
+    <string name="txt_historial_de_puntajes">Score History</string>
+    <string name="txt_modo_de_juego">Game mode:</string>
+    <string name="txt_categor_a">Category:</string>
+    <string name="txt_dificultad">Difficulty:</string>
+    <string name="txt_fecha">Date:</string>
+    <string name="txt_puntuaci_n">Score:</string>
+
+
 </resources>

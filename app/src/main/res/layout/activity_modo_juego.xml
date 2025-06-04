@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
+
     <LinearLayout
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
@@ -14,9 +15,18 @@
         android:padding="50dp"
         tools:context=".ModoJuegoActivity">
 
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginBottom="15dp"
+            android:onClick="home"
+            app:srcCompat="@drawable/home_icon"
+            tools:ignore="ContentDescription,ImageContrastCheck,SpeakableTextPresentCheck" />
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -29,6 +39,7 @@
                 android:orientation="vertical"
                 android:gravity="bottom">
 
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -36,16 +47,16 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:textAlignment="center"
-                    android:textSize="15sp"
+                    android:textSize="20sp"
                     android:textStyle="bold"
-                    android:text="Seleccione el modo de juego" />
+                    android:text="@string/txt_seleccione_el_modo_de_juego" />
 
                 <ImageView
                     android:id="@+id/imageView2"
                     android:layout_width="match_parent"
                     android:layout_height="133dp"
                     android:contentDescription="@string/txt_banner_pregunta"
-                    app:srcCompat="@drawable/banner_pregunta" />
+                    app:srcCompat="@drawable/banner_cubo" />
             </LinearLayout>
 
             <!-- Contenedor dinámico para los botones de modos de juego -->
@@ -72,5 +83,6 @@
                 app:backgroundTint="@null"
                 android:onClick="volverAInicio" />
         </LinearLayout>
+
     </LinearLayout>
 </ScrollView>

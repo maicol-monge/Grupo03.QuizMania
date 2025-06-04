@@ -51,7 +51,7 @@ public class QuizManiaDB extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE HistorialPartidas (" +
                 "idPartida INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "idModoJuego INTEGER NOT NULL, " +
-                "idCategoria INTEGER NOT NULL, " +
+                "idCategoria INTEGER, " +
                 "idDificultad INTEGER NOT NULL, " +
                 "puntuacion INTEGER NOT NULL, " +
                 "fecha TEXT NOT NULL, " +
@@ -81,7 +81,7 @@ public class QuizManiaDB extends SQLiteOpenHelper {
         db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Normal')");       // idModoJuego 1
         db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Harry Potter')"); // idModoJuego 2
         db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Aleatorio')"); // idModoJuego 3
-        db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Cronometrado')"); // idModoJuego 4
+        db.execSQL("INSERT INTO ModoJuego (nombre) VALUES ('Temporizador')"); // idModoJuego 4
 
 
         // --- Preguntas (puntaje 10 por defecto para todas) ---

@@ -34,24 +34,34 @@ public class Modo_Cronometrado extends AppCompatActivity {
     public void treintaSegundos(View view) {
         Intent intent = new Intent(this, CategoriaActivity.class);
         intent.putExtra("ValorCronometrado", "TreintaSegundos"); // Nombre consistente
+        intent.putExtra("idModoJuego", 4); // Aseguramos que se use el modo cronometrado
         startActivity(intent);
     }
 
     public void VeinteSegundos(View view) {
         Intent intent = new Intent(this, CategoriaActivity.class);
         intent.putExtra("ValorCronometrado", "VeinteSegundos"); // Nombre consistente
+        intent.putExtra("idModoJuego", 4); // Aseguramos que se use el modo cronometrado
         startActivity(intent);
     }
 
     public void DiezSegundos(View view) {
         Intent intent = new Intent(this, CategoriaActivity.class);
         intent.putExtra("ValorCronometrado", "DiezSegundos");
+        intent.putExtra("idModoJuego", 4); // Aseguramos que se use el modo cronometrado
         startActivity(intent);
     }
 
     public void CincoSegundos(View view) {
         Intent intent = new Intent(this, CategoriaActivity.class);
         intent.putExtra("ValorCronometrado", "CincoSegundos");
+        intent.putExtra("idModoJuego", 4); // Aseguramos que se use el modo cronometrado
         startActivity(intent);
+    }
+
+    public void home(View view) {
+        Intent intent = new Intent(this, Home.class);
+        startActivity(intent);
+        finish();
     }
 }

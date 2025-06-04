@@ -1,5 +1,6 @@
 package sv.edu.catolica.grupo03quizmania;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -9,9 +10,11 @@ import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -51,6 +54,8 @@ public class QuizPregunta extends AppCompatActivity {
     private Runnable temporizadorRunnable;
     private int tiempoRestante;
     private boolean temporizadorActivo = false;
+    private int preguntasCorrectas = 0;
+    private int preguntasIncorrectas = 0;
 
     TextView progresoTextView;
 
@@ -101,8 +106,25 @@ public class QuizPregunta extends AppCompatActivity {
 
         btnRendirse.setOnClickListener(v -> rendirse());
 
-        // Mostrar primera pregunta
-        mostrarPregunta();
+        preguntaActual = getIntent().getIntExtra("preguntaActual", 0); // Restaurar el número de la pregunta
+        puntaje = getIntent().getIntExtra("puntajeTotal", 0); // Restaurar puntaje
+
+        boolean retomarQuiz = getIntent().getBooleanExtra("retomarQuiz", false);
+
+        if (preguntaActual == 0) {
+            preguntaActual = 1; // Comienza desde la primera si no se está retomando
+        }
+
+
+        if (!retomarQuiz) {
+            mostrarPregunta(); // Solo si no estás retomando el quiz
+        } else {
+            mostrarPregunta(); // También deberías mostrar la pregunta actual
+        }
+
+
+
+
     }
 
     private void cargarPreguntas() {
@@ -116,8 +138,27 @@ public class QuizPregunta extends AppCompatActivity {
                 "respuestaCorrecta", "explicacion", "puntaje"
         };
 
-        String selection = "idCategoria = ? AND idDificultad = ? AND idModoJuego = ?";
-        String[] selectionArgs = {String.valueOf(idCategoria), String.valueOf(idDificultad), String.valueOf(idModoJuego)};
+        String selection;
+        String[] selectionArgs;
+
+        // Si el modo es ALEATORIO (por ejemplo modo con id 3), ignoramos categoría
+        if (idModoJuego == 3) {
+            selection = "idDificultad = ?";
+            selectionArgs = new String[]{String.valueOf(idDificultad)};
+        } else if (idModoJuego == 4) {
+            selection = "idCategoria = ? AND idDificultad = ? AND idModoJuego = 1";
+            selectionArgs = new String[]{
+                    String.valueOf(idCategoria),
+                    String.valueOf(idDificultad)
+            };
+        } else {
+            selection = "idCategoria = ? AND idDificultad = ? AND idModoJuego = ?";
+            selectionArgs = new String[]{
+                    String.valueOf(idCategoria),
+                    String.valueOf(idDificultad),
+                    String.valueOf(idModoJuego)
+            };
+        }
 
         Cursor cursor = null;
         try {
@@ -163,11 +204,19 @@ public class QuizPregunta extends AppCompatActivity {
             return;
         }
 
+        // Mezclar y limitar a 8 si es modo aleatorio
         Collections.shuffle(listaPreguntas);
-        totalPreguntas = Math.min(listaPreguntas.size(), totalPreguntas);
+
+        if (idModoJuego == 3) {
+            totalPreguntas = Math.min(8, listaPreguntas.size()); // Solo 8 preguntas
+        } else {
+            totalPreguntas = Math.min(listaPreguntas.size(), totalPreguntas);
+        }
     }
 
+
     private void mostrarPregunta() {
+        limpiarEstadoTemporizador();
         if (listaPreguntas == null || listaPreguntas.isEmpty()) {
             Toast.makeText(this, "No hay preguntas disponibles", Toast.LENGTH_LONG).show();
             finish();
@@ -213,20 +262,28 @@ public class QuizPregunta extends AppCompatActivity {
     }
 
     private void iniciarTemporizador() {
-        // Convertir valorCronometrado a segundos
-        switch (valorCronometrado) {
-            case "TreintaSegundos":
-                tiempoRestante = 30;
-                break;
-            case "VeinteSegundos":
-                tiempoRestante = 20;
-                break;
-            case "DiezSegundos":
-                tiempoRestante = 10;
-                break;
-            case "CincoSegundos":
-                tiempoRestante = 5;
-                break;
+        SharedPreferences prefs = getSharedPreferences("QuizPrefs", MODE_PRIVATE);
+        boolean temporizadorGuardado = prefs.getBoolean("temporizadorActivo", false);
+
+        if (temporizadorGuardado) {
+            tiempoRestante = prefs.getInt("tiempoRestante", 0);
+            prefs.edit().clear().apply(); // Limpiar el estado después de cargarlo
+        } else {
+            // Convertir valorCronometrado a segundos solo si no hay valor guardado
+            switch (valorCronometrado) {
+                case "TreintaSegundos":
+                    tiempoRestante = 30;
+                    break;
+                case "VeinteSegundos":
+                    tiempoRestante = 20;
+                    break;
+                case "DiezSegundos":
+                    tiempoRestante = 10;
+                    break;
+                case "CincoSegundos":
+                    tiempoRestante = 5;
+                    break;
+            }
         }
 
         tvTemporizador.setVisibility(View.VISIBLE);
@@ -250,6 +307,11 @@ public class QuizPregunta extends AppCompatActivity {
         handler.postDelayed(temporizadorRunnable, 1000);
     }
 
+    private void limpiarEstadoTemporizador() {
+        getSharedPreferences("QuizPrefs", MODE_PRIVATE).edit().clear().apply();
+    }
+
+
     private void actualizarTemporizadorUI() {
         int minutos = tiempoRestante / 60;
         int segundos = tiempoRestante % 60;
@@ -260,7 +322,7 @@ public class QuizPregunta extends AppCompatActivity {
         if (tiempoRestante <= 10) {
             tvTemporizador.setTextColor(Color.RED);
         } else {
-            tvTemporizador.setTextColor(Color.BLACK);
+            tvTemporizador.setTextColor(ContextCompat.getColor(this, R.color.temporizador));
         }
     }
 
@@ -283,6 +345,8 @@ public class QuizPregunta extends AppCompatActivity {
         // Mostrar respuesta correcta (como respuesta incorrecta)
         mostrarRespuestaCorrecta();
 
+        preguntasIncorrectas++;
+
         // Mostrar mensaje
         Toast.makeText(this, "¡Tiempo agotado!", Toast.LENGTH_SHORT).show();
 
@@ -292,9 +356,20 @@ public class QuizPregunta extends AppCompatActivity {
         intent.putExtra("respuestaCorrecta", preguntaActualObj.getRespuestaCorrecta());
         intent.putExtra("explicacion", preguntaActualObj.getExplicacion());
         intent.putExtra("puntajePregunta", 0); // No se otorgan puntos
-
-        // Iniciar la actividad de resultado
-        startActivity(intent);
+        intent.putExtra("puntajeTotal", puntaje); // Pasar puntaje total acumulado
+        intent.putExtra("preguntaActual", preguntaActual);
+        intent.putExtra("totalPreguntas", totalPreguntas); // Asegúrate de pasar el total de preguntas
+        intent.putExtra("idCategoria", idCategoria);
+        intent.putExtra("idDificultad", idDificultad);
+        intent.putExtra("idModoJuego", idModoJuego);
+        intent.putExtra("ValorCronometrado", valorCronometrado);
+        intent.putExtra("preguntasCorrectas", preguntasCorrectas);
+        intent.putExtra("preguntasIncorrectas", preguntasIncorrectas);
+        new Handler().postDelayed(() -> {
+            // Asegurarse de que la actividad de resultado se inicie después de un breve retraso
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+        }, 1000);
 
         // No incrementar preguntaActual aquí, se hará en onResume()
     }
@@ -314,11 +389,13 @@ public class QuizPregunta extends AppCompatActivity {
 
         // Resaltar respuestas
         if (esCorrecta) {
-            botonSeleccionado.setBackgroundColor(Color.GREEN);
+            botonSeleccionado.setBackgroundColor(Color.rgb(30,162,45));
             puntaje += preguntaActualObj.getPuntaje();
+            preguntasCorrectas++;
         } else {
-            botonSeleccionado.setBackgroundColor(Color.RED);
+            botonSeleccionado.setBackgroundColor(Color.rgb(255,87,87));;
             mostrarRespuestaCorrecta();
+            preguntasIncorrectas++;
         }
 
         // Mostrar pantalla de resultado
@@ -327,12 +404,34 @@ public class QuizPregunta extends AppCompatActivity {
         intent.putExtra("respuestaCorrecta", preguntaActualObj.getRespuestaCorrecta());
         intent.putExtra("explicacion", preguntaActualObj.getExplicacion());
         intent.putExtra("puntajePregunta", esCorrecta ? preguntaActualObj.getPuntaje() : 0);
-        startActivity(intent);
+        intent.putExtra("puntajeTotal", puntaje); // Pasar puntaje total acumulado
+        intent.putExtra("preguntaActual", preguntaActual);
+        intent.putExtra("totalPreguntas", totalPreguntas); // Asegúrate de pasar el total de preguntas
+        intent.putExtra("idCategoria", idCategoria);
+        intent.putExtra("idDificultad", idDificultad);
+        intent.putExtra("idModoJuego", idModoJuego);
+        intent.putExtra("ValorCronometrado", valorCronometrado);
+        intent.putExtra("preguntasCorrectas", preguntasCorrectas);
+        intent.putExtra("preguntasIncorrectas", preguntasIncorrectas);
+        new Handler().postDelayed(() -> {
+                    // Asegurarse de que la actividad de resultado se inicie después de un breve retraso
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+                }, 1000);
+
     }
 
     @Override
     protected void onResume() {
         super.onResume();
+        if (idModoJuego == 4) {
+            SharedPreferences prefs = getSharedPreferences("QuizPrefs", MODE_PRIVATE);
+            boolean temporizadorGuardado = prefs.getBoolean("temporizadorActivo", false);
+
+            if (temporizadorGuardado) {
+                iniciarTemporizador(); // Esto usará el tiempoRestante guardado
+            }
+        }
 
         // Verificar si debemos pasar a la siguiente pregunta
         if (opcion1 != null && !opcion1.isEnabled()) {
@@ -347,24 +446,34 @@ public class QuizPregunta extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        detenerTemporizador();
+        if (temporizadorActivo) {
+            detenerTemporizador();
+
+            // Guardar estado en SharedPreferences
+            getSharedPreferences("QuizPrefs", MODE_PRIVATE).edit()
+                    .putInt("tiempoRestante", tiempoRestante)
+                    .putBoolean("temporizadorActivo", true)
+                    .apply();
+        }
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
         detenerTemporizador();
+        SharedPreferences prefs = getSharedPreferences("QuizPrefs", MODE_PRIVATE);
+        prefs.edit().clear().apply(); // Limpia si se destruye la actividad
     }
 
     private void mostrarRespuestaCorrecta() {
         if (opcion1.getText().toString().equals(preguntaActualObj.getRespuestaCorrecta())) {
-            opcion1.setBackgroundColor(Color.GREEN);
+            opcion1.setBackgroundColor(Color.rgb(30,162,45));
         } else if (opcion2.getText().toString().equals(preguntaActualObj.getRespuestaCorrecta())) {
-            opcion2.setBackgroundColor(Color.GREEN);
+            opcion2.setBackgroundColor(Color.rgb(30,162,45));
         } else if (opcion3.getText().toString().equals(preguntaActualObj.getRespuestaCorrecta())) {
-            opcion3.setBackgroundColor(Color.GREEN);
+            opcion3.setBackgroundColor(Color.rgb(30,162,45));
         } else {
-            opcion4.setBackgroundColor(Color.GREEN);
+            opcion4.setBackgroundColor(Color.rgb(30,162,45));
         }
     }
 
@@ -403,9 +512,25 @@ public class QuizPregunta extends AppCompatActivity {
 
     private void rendirse() {
         detenerTemporizador();
-        Toast.makeText(this, "Has terminado el quiz. Puntaje obtenido: " + puntaje, Toast.LENGTH_LONG).show();
-        guardarResultado();
-        finish();
+
+        SharedPreferences prefs = getSharedPreferences("QuizPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putInt("tiempoRestante", tiempoRestante);
+        editor.putBoolean("temporizadorActivo", true);
+        editor.apply();
+        // Mostrar pantalla de resultado
+        Intent intent = new Intent(this, Rendirse.class);
+        intent.putExtra("puntajeTotal", puntaje); // Pasar puntaje total acumulado
+        intent.putExtra("preguntaActual", preguntaActual);
+        intent.putExtra("totalPreguntas", totalPreguntas); // Asegúrate de pasar el total de preguntas
+        intent.putExtra("idCategoria", idCategoria);
+        intent.putExtra("idDificultad", idDificultad);
+        intent.putExtra("idModoJuego", idModoJuego);
+        intent.putExtra("ValorCronometrado", valorCronometrado);
+        intent.putExtra("preguntasCorrectas", preguntasCorrectas);
+        intent.putExtra("preguntasIncorrectas", preguntasIncorrectas);
+
+        startActivity(intent);
     }
 
     private static class Pregunta {
