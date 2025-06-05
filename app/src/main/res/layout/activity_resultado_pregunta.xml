@@ -36,7 +36,8 @@
                 android:textSize="24sp"
                 android:fontFamily="@font/montserrat_bold"
                 android:layout_marginBottom="16dp"
-                android:text="@string/txt_resultado"/>
+                android:text="@string/txt_resultado"
+                android:layout_gravity="center_horizontal"/>
 
             <TextView
                 android:id="@+id/tvPuntuacion"
@@ -80,6 +81,7 @@
                     android:textColor="@color/white"
                     app:backgroundTint="@null"
                     app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"/>
 
             </androidx.constraintlayout.widget.ConstraintLayout>

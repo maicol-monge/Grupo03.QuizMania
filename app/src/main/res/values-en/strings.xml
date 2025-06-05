@@ -12,7 +12,7 @@
     <string name="txt_pregunta">Question</string>
     <string name="txt_banner_pregunta">Question banner</string>
     <string name="btn_rendirse">Give Up</string>
-    <string name="txt_selec_una_categoria">Select Select a category</string>
+    <string name="txt_selec_una_categoria">Select a category</string>
     <string name="txt_atras">Back</string>
     <string name="txt_seleccione_la_dificultad">Select difficulty</string>
     <string name="txt_facil">Easy</string>

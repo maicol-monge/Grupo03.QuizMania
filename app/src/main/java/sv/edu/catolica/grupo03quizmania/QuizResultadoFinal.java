@@ -55,7 +55,9 @@ public class QuizResultadoFinal extends AppCompatActivity {
         int idCategoria = intent.getIntExtra("idCategoria", 1);
         int idDificultad = intent.getIntExtra("idDificultad", 1);
         int idModoJuego = intent.getIntExtra("idModoJuego", 1);
-        String fechaActual = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy"));
+        String fechaActual = java.time.LocalDateTime.now()
+                .format(java.time.format.DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm:ss"));
+
 
         boolean esModoAleatorio = idModoJuego == 3; // O el ID que uses para el modo aleatorio
 
@@ -97,7 +99,7 @@ public class QuizResultadoFinal extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT nombre FROM Categoria WHERE idCategoria = ?", new String[]{String.valueOf(idCategoria)});
         if (cursor.moveToFirst()) {
-            String nombre = cursor.getString(0);
+            String nombre = traducirNombreCategoria(cursor.getString(0));
             cursor.close();
             return nombre;
         }
@@ -109,7 +111,7 @@ public class QuizResultadoFinal extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT nivel FROM Dificultad WHERE idDificultad = ?", new String[]{String.valueOf(idDificultad)});
         if (cursor.moveToFirst()) {
-            String nombre = cursor.getString(0);
+            String nombre = traducirDificultad(cursor.getString(0));
             cursor.close();
             return nombre;
         }
@@ -121,7 +123,7 @@ public class QuizResultadoFinal extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT nombre FROM ModoJuego WHERE idModoJuego = ?", new String[]{String.valueOf(idModoJuego)});
         if (cursor.moveToFirst()) {
-            String nombre = cursor.getString(0);
+            String nombre = traducirModoJuego(cursor.getString(0));
             cursor.close();
             return nombre;
         }
@@ -156,5 +158,58 @@ public class QuizResultadoFinal extends AppCompatActivity {
         startActivity(intent);
         finish();
         overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left);
+    }
+
+    private String traducirModoJuego(String nombreModoBD) {
+        switch (nombreModoBD.toLowerCase()) {
+            case "normal":
+                return getString(R.string.modo_normal);
+            case "harry potter":
+                return getString(R.string.modo_harry_potter);
+            case "aleatorio":
+                return getString(R.string.modo_aleatorio);
+            case "temporizador":
+                return getString(R.string.modo_cronometrado);
+            default:
+                return nombreModoBD; // Si no se encuentra, devuelve el texto original
+        }
+    }
+
+    private String traducirNombreCategoria(String nombre) {
+        switch (nombre) {
+            case "Historia":
+                return getString(R.string.cat_historia);
+            case "Ciencia":
+                return getString(R.string.cat_ciencia);
+            case "Geografía":
+                return getString(R.string.cat_geografia);
+            case "Arte":
+                return getString(R.string.cat_arte);
+            case "Literatura":
+                return getString(R.string.cat_literatura);
+            case "Cine":
+                return getString(R.string.cat_cine);
+            case "Música":
+                return getString(R.string.cat_musica);
+            case "Actualidad":
+                return getString(R.string.cat_actualidad);
+            case "Harry Potter":
+                return getString(R.string.cat_harry_potter);
+            default:
+                return nombre; // Si no encuentra traducción, muestra el original
+        }
+    }
+
+    private String traducirDificultad(String nombreDificultad) {
+        switch (nombreDificultad.toLowerCase()) {
+            case "fácil":
+                return getString(R.string.txt_facil);
+            case "medio":
+                return getString(R.string.txt_medio);
+            case "difícil":
+                return getString(R.string.txt_dificil);
+            default:
+                return nombreDificultad; // Si no se encuentra, devuelve el texto original
+        }
     }
 }

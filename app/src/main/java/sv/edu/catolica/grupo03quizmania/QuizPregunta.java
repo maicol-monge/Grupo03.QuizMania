@@ -30,6 +30,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Locale;
 
 import com.google.android.material.progressindicator.CircularProgressIndicator;
 
@@ -69,6 +70,9 @@ public class QuizPregunta extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        String idiomaSistema = Locale.getDefault().getLanguage(); // Devuelve "es", "en", "pt"
+
 
         idCategoria = getIntent().getIntExtra("idCategoria", 1);
         idDificultad = getIntent().getIntExtra("idDificultad", 1);
@@ -175,18 +179,42 @@ public class QuizPregunta extends AppCompatActivity {
             Log.d("QUIZ_DEBUG", "Número de preguntas encontradas: " + cursor.getCount());
 
             while (cursor.moveToNext()) {
-                Pregunta pregunta = new Pregunta(
-                        cursor.getInt(cursor.getColumnIndexOrThrow("idPregunta")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("pregunta")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("opcionA")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("opcionB")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("opcionC")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("opcionD")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("respuestaCorrecta")),
-                        cursor.getString(cursor.getColumnIndexOrThrow("explicacion")),
+                int idPregunta = cursor.getInt(cursor.getColumnIndexOrThrow("idPregunta"));
+                String idiomaSistema = Locale.getDefault().getLanguage(); // "es", "en", "pt"
+
+                Cursor traduccionCursor = db.rawQuery(
+                        "SELECT * FROM PreguntaTraduccion WHERE idPregunta = ? AND idioma = ?",
+                        new String[]{String.valueOf(idPregunta), idiomaSistema}
+                );
+
+                String pregunta = cursor.getString(cursor.getColumnIndexOrThrow("pregunta"));
+                String opcionA = cursor.getString(cursor.getColumnIndexOrThrow("opcionA"));
+                String opcionB = cursor.getString(cursor.getColumnIndexOrThrow("opcionB"));
+                String opcionC = cursor.getString(cursor.getColumnIndexOrThrow("opcionC"));
+                String opcionD = cursor.getString(cursor.getColumnIndexOrThrow("opcionD"));
+                String respuestaCorrecta = cursor.getString(cursor.getColumnIndexOrThrow("respuestaCorrecta"));
+                String explicacion = cursor.getString(cursor.getColumnIndexOrThrow("explicacion"));
+
+                if (traduccionCursor.moveToFirst()) {
+                    pregunta = traduccionCursor.getString(traduccionCursor.getColumnIndexOrThrow("pregunta"));
+                    opcionA = traduccionCursor.getString(traduccionCursor.getColumnIndexOrThrow("opcionA"));
+                    opcionB = traduccionCursor.getString(traduccionCursor.getColumnIndexOrThrow("opcionB"));
+                    opcionC = traduccionCursor.getString(traduccionCursor.getColumnIndexOrThrow("opcionC"));
+                    opcionD = traduccionCursor.getString(traduccionCursor.getColumnIndexOrThrow("opcionD"));
+                    respuestaCorrecta = traduccionCursor.getString(traduccionCursor.getColumnIndexOrThrow("respuestaCorrecta"));
+                    explicacion = traduccionCursor.getString(traduccionCursor.getColumnIndexOrThrow("explicacion"));
+                }
+                if (traduccionCursor != null) traduccionCursor.close();
+
+                Pregunta p = new Pregunta(
+                        idPregunta, pregunta, opcionA, opcionB, opcionC, opcionD,
+                        respuestaCorrecta, explicacion,
                         cursor.getInt(cursor.getColumnIndexOrThrow("puntaje"))
                 );
-                listaPreguntas.add(pregunta);
+                listaPreguntas.add(p);
+                Log.d("IDIOMA", "Idioma del sistema: " + idiomaSistema);
+
+
             }
         } catch (Exception e) {
             Log.e("QUIZ_ERROR", "Error al cargar preguntas: " + e.getMessage());

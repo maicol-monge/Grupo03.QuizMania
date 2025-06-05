@@ -65,9 +65,9 @@ public class MisEstadisticas extends AppCompatActivity {
             do {
                 int puntuacion = cursor.getInt(0);
                 String fecha = cursor.getString(1);
-                String modo = cursor.getString(2);
-                String categoria = cursor.isNull(3) ? getString(R.string.txt_mixto) : cursor.getString(3);
-                String dificultad = cursor.getString(4);
+                String modo = traducirModoJuego(cursor.getString(2));
+                String categoria = traducirNombreCategoria(cursor.isNull(3) ? getString(R.string.txt_mixto) : cursor.getString(3));
+                String dificultad = traducirDificultad(cursor.getString(4));
 
                 String texto = i + ". " +
                         getString(R.string.txt_puntuaci_n) + " " + puntuacion + " - " +
@@ -102,9 +102,9 @@ public class MisEstadisticas extends AppCompatActivity {
         while (cursor.moveToNext()) {
             int puntuacion = cursor.getInt(0);
             String fecha = cursor.getString(1);
-            String modo = cursor.getString(2);
-            String categoria = cursor.isNull(3) ? getString(R.string.txt_mixto) : cursor.getString(3);
-            String dificultad = cursor.getString(4);
+            String modo = traducirModoJuego(cursor.getString(2));
+            String categoria = traducirNombreCategoria(cursor.isNull(3) ? getString(R.string.txt_mixto) : cursor.getString(3));
+            String dificultad = traducirDificultad(cursor.getString(4));
 
             historialList.add(new PartidaHistorial(modo, categoria, dificultad, fecha, puntuacion));
         }
@@ -118,5 +118,58 @@ public class MisEstadisticas extends AppCompatActivity {
 
     public void btnMenuPrincipal(View view) {
         finish();
+    }
+
+    private String traducirModoJuego(String nombreModoBD) {
+        switch (nombreModoBD.toLowerCase()) {
+            case "normal":
+                return getString(R.string.modo_normal);
+            case "harry potter":
+                return getString(R.string.modo_harry_potter);
+            case "aleatorio":
+                return getString(R.string.modo_aleatorio);
+            case "temporizador":
+                return getString(R.string.modo_cronometrado);
+            default:
+                return nombreModoBD; // Si no se encuentra, devuelve el texto original
+        }
+    }
+
+    private String traducirNombreCategoria(String nombre) {
+        switch (nombre) {
+            case "Historia":
+                return getString(R.string.cat_historia);
+            case "Ciencia":
+                return getString(R.string.cat_ciencia);
+            case "Geografía":
+                return getString(R.string.cat_geografia);
+            case "Arte":
+                return getString(R.string.cat_arte);
+            case "Literatura":
+                return getString(R.string.cat_literatura);
+            case "Cine":
+                return getString(R.string.cat_cine);
+            case "Música":
+                return getString(R.string.cat_musica);
+            case "Actualidad":
+                return getString(R.string.cat_actualidad);
+            case "Harry Potter":
+                return getString(R.string.cat_harry_potter);
+            default:
+                return nombre; // Si no encuentra traducción, muestra el original
+        }
+    }
+
+    private String traducirDificultad(String nombreDificultad) {
+        switch (nombreDificultad.toLowerCase()) {
+            case "fácil":
+                return getString(R.string.txt_facil);
+            case "medio":
+                return getString(R.string.txt_medio);
+            case "difícil":
+                return getString(R.string.txt_dificil);
+            default:
+                return nombreDificultad; // Si no se encuentra, devuelve el texto original
+        }
     }
 }
