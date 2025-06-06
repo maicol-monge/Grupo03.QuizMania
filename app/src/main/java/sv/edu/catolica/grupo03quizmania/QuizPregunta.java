@@ -417,11 +417,11 @@ public class QuizPregunta extends AppCompatActivity {
 
         // Resaltar respuestas
         if (esCorrecta) {
-            botonSeleccionado.setBackgroundColor(Color.rgb(30,162,45));
+            botonSeleccionado.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_style_correcto));
             puntaje += preguntaActualObj.getPuntaje();
             preguntasCorrectas++;
         } else {
-            botonSeleccionado.setBackgroundColor(Color.rgb(255,87,87));;
+            botonSeleccionado.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_style_incorrecto));;
             mostrarRespuestaCorrecta();
             preguntasIncorrectas++;
         }
@@ -495,13 +495,13 @@ public class QuizPregunta extends AppCompatActivity {
 
     private void mostrarRespuestaCorrecta() {
         if (opcion1.getText().toString().equals(preguntaActualObj.getRespuestaCorrecta())) {
-            opcion1.setBackgroundColor(Color.rgb(30,162,45));
+            opcion1.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_style_correcto));
         } else if (opcion2.getText().toString().equals(preguntaActualObj.getRespuestaCorrecta())) {
-            opcion2.setBackgroundColor(Color.rgb(30,162,45));
+            opcion2.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_style_correcto));
         } else if (opcion3.getText().toString().equals(preguntaActualObj.getRespuestaCorrecta())) {
-            opcion3.setBackgroundColor(Color.rgb(30,162,45));
+            opcion3.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_style_correcto));
         } else {
-            opcion4.setBackgroundColor(Color.rgb(30,162,45));
+            opcion4.setBackground(ContextCompat.getDrawable(this, R.drawable.btn_style_correcto));
         }
     }
 
